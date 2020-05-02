@@ -25,7 +25,7 @@ public class Main {
         MysqlManager mysqlManager = new MysqlManager();
         try {
             mysqlManager.openConnection();
-            mysqlManager.inst(productList);
+            mysqlManager.insert(productList);
 //            mysqlManager.testInsert();
             mysqlManager.closeConecction();
         } catch (Exception e) {
