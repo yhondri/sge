@@ -4,12 +4,11 @@ import java.util.Date;
 
 public class Product {
     private int id;
-    private String defaultCode;
+    private boolean defaultCode;
     private boolean active;
-    private int productTmplId;
     private String barcode;
-    private int volume;
-    private int weight;
+    private double volume;
+    private double weight;
     private Date messageLastPost;
     private Date activityDateDeadline;
     private int createUID;
@@ -25,11 +24,11 @@ public class Product {
         this.id = id;
     }
 
-    public String getDefaultCode() {
+    public boolean getDefaultCode() {
         return defaultCode;
     }
 
-    public void setDefaultCode(String defaultCode) {
+    public void setDefaultCode(boolean defaultCode) {
         this.defaultCode = defaultCode;
     }
 
@@ -41,14 +40,6 @@ public class Product {
         this.active = active;
     }
 
-    public int getProductTmplId() {
-        return productTmplId;
-    }
-
-    public void setProductTmplId(int productTmplId) {
-        this.productTmplId = productTmplId;
-    }
-
     public String getBarcode() {
         return barcode;
     }
@@ -57,19 +48,19 @@ public class Product {
         this.barcode = barcode;
     }
 
-    public int getVolume() {
+    public double getVolume() {
         return volume;
     }
 
-    public void setVolume(int volume) {
+    public void setVolume(double volume) {
         this.volume = volume;
     }
 
-    public int getWeight() {
+    public double getWeight() {
         return weight;
     }
 
-    public void setWeight(int weight) {
+    public void setWeight(double weight) {
         this.weight = weight;
     }
 

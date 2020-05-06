@@ -19,23 +19,13 @@ public class ServiceManager {
     }
 
     public List<Object> getProductsFromOdoo() throws XmlRpcException, MalformedURLException {
-        URL serverURL = getServerURL();
-        start_config.setServerURL(serverURL);
-      /*  final Map<String, String> info = (Map<String, String>) client.execute(start_config, "start", emptyList());
-
-        final String url = info.get("host"),
-                db = info.get("database"),
-                username = info.get("user"),
-                password = info.get("password");
-*/
         String url = "http://localhost:8069";
         final XmlRpcClientConfigImpl common_config = new XmlRpcClientConfigImpl();
         common_config.setServerURL(new URL(String.format("%s/xmlrpc/2/common", url)));
 
         String db = "ChocoCola";
         String username = "marito07@ucm.es";
-        String password = "odoo";
-
+        String password = "oDoo";
 
         int uid = (int)client.execute(
                 common_config, "authenticate", asList(
@@ -48,12 +38,11 @@ public class ServiceManager {
             }});
         }};
 
-        final List ids = asList((Object[])models.execute(
-                "execute_kw", asList(
-                        db, uid, password,
-                        "product.product", "search", asList())));
 
-        // TODO: Es probable que tengamos que listar los campos que queremos.
+        final List ids = asList((Object[])models.execute("execute_kw", asList(
+                        db, uid, password,
+                        "product.product", "search", asList(asList()))));
+
         final List<Object> record = asList((Object[])models.execute(
                 "execute_kw", asList(
                         db, uid, password,

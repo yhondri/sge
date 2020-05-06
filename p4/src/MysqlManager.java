@@ -22,25 +22,18 @@ public class MysqlManager {
         Statement statement = connection.createStatement();
 
         // the mysql insert statement
-        String query = "INSERT INTO " + tableName + " (id, default_code, active, product_tmpl_id, barcode, volume, weight, message_last_post, activity_date_deadline, create_uid, create_date, write_uid, write_date)"
-                + " values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO " + tableName + " (id, default_code, active, barcode, volume, weight)"
+                + " values (?, ?, ?, ?, ?, ?)";
         PreparedStatement preparedStmt = connection.prepareStatement(query);
 
         for (Product product : productList) {
             // create the mysql insert preparedstatement
             preparedStmt.setInt(1, product.getId());
-            preparedStmt.setString(2, product.getDefaultCode());
+            preparedStmt.setBoolean(2, product.getDefaultCode());
             preparedStmt.setBoolean(3, product.isActive());
-            preparedStmt.setInt(4, product.getProductTmplId());
-            preparedStmt.setString(5, product.getBarcode());
-            preparedStmt.setInt(6, product.getVolume());
-            preparedStmt.setInt(7, product.getWeight());
-            preparedStmt.setDate(8, new java.sql.Date(product.getMessageLastPost().getTime()));
-            preparedStmt.setDate(9, new java.sql.Date(product.getActivityDateDeadline().getTime()));
-            preparedStmt.setInt(10, product.getCreateUID());
-            preparedStmt.setDate(11, new java.sql.Date(product.getCreateDate().getTime()));
-            preparedStmt.setInt(12, product.getWriteUID());
-            preparedStmt.setDate(13, new java.sql.Date(product.getWriteDate().getTime()));
+            preparedStmt.setString(4, product.getBarcode());
+            preparedStmt.setDouble(5, product.getVolume());
+            preparedStmt.setDouble(6, product.getWeight());
             preparedStmt.addBatch();
         }
 

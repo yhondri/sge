@@ -6,7 +6,7 @@ public class Main {
 
     public static void main(String[] args) {
         List<Product> productList = getProductListFromOddo();
-        saveProductsInDataBase(productList);
+        //    saveProductsInDataBase(productList);
     }
 
     private static List<Product> getProductListFromOddo() {
