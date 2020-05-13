@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.TimeZone;
 
 public class MysqlManager {
-    private final String dataBaseURL = "jdbc:mysql://localhost:3306/SGE?serverTimezone="+TimeZone.getDefault().getID();
+    private final String dataBaseURL = "jdbc:mysql://localhost:3306/chococola?serverTimezone="+TimeZone.getDefault().getID();
     private Connection connection;
     private final String tableName = "product_product";
 

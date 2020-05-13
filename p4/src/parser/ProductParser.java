@@ -27,6 +27,7 @@ public class ProductParser {
                    // product.setCreateDate((Date)((Map) object).get("create_date"));
                     //roduct.setWriteUID((int)((Map) object).get("write_uid"));
                  //   product.setWriteDate((Date)((Map) object).get("write_date"));
+                    productList.add(product);
                 }
             }
         } catch (Exception e) {
