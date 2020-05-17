@@ -19,21 +19,25 @@ public class MysqlManager {
     }
 
     public void insert(List<Product> productList) throws SQLException {
-        Statement statement = connection.createStatement();
+        String deleteQuery = "DELETE FROM " + tableName;
+        PreparedStatement deleteStmt = connection.prepareStatement(deleteQuery);
+        deleteStmt.execute();
 
         // the mysql insert statement
-        String query = "INSERT INTO " + tableName + " (id, default_code, active, barcode, volume, weight)"
-                + " values (?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO " + tableName + " (id, name, list_price, default_code, active, barcode, volume, weight)"
+                + " values (?, ?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement preparedStmt = connection.prepareStatement(query);
 
         for (Product product : productList) {
             // create the mysql insert preparedstatement
             preparedStmt.setInt(1, product.getId());
-            preparedStmt.setBoolean(2, product.getDefaultCode());
-            preparedStmt.setBoolean(3, product.isActive());
-            preparedStmt.setString(4, product.getBarcode());
-            preparedStmt.setDouble(5, product.getVolume());
-            preparedStmt.setDouble(6, product.getWeight());
+            preparedStmt.setString(2, product.getName());
+            preparedStmt.setDouble(3, product.getList_price());
+            preparedStmt.setString(4, product.getDefaultCode());
+            preparedStmt.setBoolean(5, product.isActive());
+            preparedStmt.setString(6, product.getBarcode());
+            preparedStmt.setDouble(7, product.getVolume());
+            preparedStmt.setDouble(8, product.getWeight());
             preparedStmt.addBatch();
         }
 
@@ -56,7 +60,7 @@ public class MysqlManager {
             // create the mysql insert preparedstatement
             preparedStmt.setInt(1, 0);
             preparedStmt.setString(2, "0");
-            preparedStmt.setBoolean(3, true);
+            preparedStmt.setString(3, "ok");
             preparedStmt.setInt(4, 0);
             preparedStmt.setString(5, "0001");
             preparedStmt.setInt(6, 0);
