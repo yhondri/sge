@@ -77,33 +77,6 @@ public class MysqlManager {
         // Insert multiple rows
         preparedStmt.executeBatch();
     }
-
-
-    public void testInsert() throws SQLException {
-        Statement statement = connection.createStatement();
-
-        // the mysql insert statement
-        String query = "INSERT INTO " + tableName + " (id, default_code, active, product_tmpl_id, barcode, volume, weight, message_last_post, activity_date_deadline, create_uid, create_date, write_uid, write_date)"
-                + " values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-
-        // create the mysql insert preparedstatement
-        PreparedStatement preparedStmt = connection.prepareStatement(query);
-        preparedStmt.setInt (1, 0);
-        preparedStmt.setString (2, "0");
-        preparedStmt.setBoolean(3, true);
-        preparedStmt.setInt (4, 0);
-        preparedStmt.setString (5, "0001");
-        preparedStmt.setInt (6, 0);
-        preparedStmt.setInt (7, 0);
-        preparedStmt.setDate   (8, new Date(1588416989));
-        preparedStmt.setDate   (9, new Date(1588416989));
-        preparedStmt.setInt (10, 0);
-        preparedStmt.setDate   (11, new Date(1588416989));
-        preparedStmt.setInt (12, 0);
-        preparedStmt.setDate   (13, new Date(1588416989));
-
-        // execute the preparedstatement
-        preparedStmt.execute();
-    }
+    
 
 }

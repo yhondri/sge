@@ -28,12 +28,6 @@ public class ProductParser {
                     product.setWeight((double)((Map) object).get("weight"));
                     product.setName((String)((Map) object).get("name"));
                     product.setList_price((double)((Map) object).get("list_price"));
-                    //product.setMessageLastPost((Date)((Map) object).get("message_last_post"));
-//                    product.setActivityDateDeadline((Date)((Map) object).get("activity_date_deadline"));
-                    //product.setCreateUID((int)((Map) object).get("create_uid"));
-                   // product.setCreateDate((Date)((Map) object).get("create_date"));
-                    //roduct.setWriteUID((int)((Map) object).get("write_uid"));
-                 //   product.setWriteDate((Date)((Map) object).get("write_date"));
                     productList.add(product);
                 }
             }
