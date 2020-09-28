@@ -19,7 +19,9 @@ public class MysqlManager {
     }
 
     public void insert(List<Product> productList) throws SQLException {
-        Statement statement = connection.createStatement();
+        String deleteQuery = "DELETE FROM " + tableName;
+        PreparedStatement deleteStmt = connection.prepareStatement(deleteQuery);
+        deleteStmt.execute();
 
         // the mysql insert statement
         String query = "INSERT INTO " + tableName + " (id, default_code, active, barcode, volume, weight)"
