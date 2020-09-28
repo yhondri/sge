@@ -15,18 +15,20 @@ public class ProductParser {
                 if (object instanceof Map) {
                     Product product = new Product();
                     product.setId((int) ((Map) object).get("id"));
-                    product.setDefaultCode((boolean)((Map) object).get("default_code"));
+                    if((((Map) object).get("default_code")) instanceof Boolean){
+                        product.setDefaultCode("no_default_code");
+                    }else{
+                        product.setDefaultCode((String)((Map) object).get("default_code"));
+                    }
+
                     product.setActive((boolean)((Map) object).get("active"));
                     if (safeCast(((Map) object).get("barcode"), String.class)  != null)
                     product.setBarcode((String)((Map) object).get("barcode"));
                     product.setVolume((double)((Map) object).get("volume"));
                     product.setWeight((double)((Map) object).get("weight"));
-                    //product.setMessageLastPost((Date)((Map) object).get("message_last_post"));
-//                    product.setActivityDateDeadline((Date)((Map) object).get("activity_date_deadline"));
-                    //product.setCreateUID((int)((Map) object).get("create_uid"));
-                   // product.setCreateDate((Date)((Map) object).get("create_date"));
-                    //roduct.setWriteUID((int)((Map) object).get("write_uid"));
-                 //   product.setWriteDate((Date)((Map) object).get("write_date"));
+                    product.setName((String)((Map) object).get("name"));
+                    product.setList_price((double)((Map) object).get("list_price"));
+                    productList.add(product);
                 }
             }
         } catch (Exception e) {

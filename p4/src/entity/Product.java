@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Product {
     private int id;
-    private boolean defaultCode;
+    private String defaultCode;
     private boolean active;
     private String barcode;
     private double volume;
@@ -15,6 +15,8 @@ public class Product {
     private Date createDate;
     private int writeUID;
     private Date writeDate;
+    private String name;
+    private double list_price;
 
     public int getId() {
         return id;
@@ -24,11 +26,11 @@ public class Product {
         this.id = id;
     }
 
-    public boolean getDefaultCode() {
+    public String getDefaultCode() {
         return defaultCode;
     }
 
-    public void setDefaultCode(boolean defaultCode) {
+    public void setDefaultCode(String defaultCode) {
         this.defaultCode = defaultCode;
     }
 
@@ -110,5 +112,21 @@ public class Product {
 
     public void setWriteDate(Date writeDate) {
         this.writeDate = writeDate;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public double getList_price() {
+        return list_price;
+    }
+
+    public void setList_price(double list_price) {
+        this.list_price = list_price;
     }
 }

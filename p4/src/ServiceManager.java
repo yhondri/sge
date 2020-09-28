@@ -25,7 +25,7 @@ public class ServiceManager {
 
         String db = "ChocoCola";
         String username = "marito07@ucm.es";
-        String password = "oDoo";
+        String password = "odoo";
 
         int uid = (int)client.execute(
                 common_config, "authenticate", asList(
